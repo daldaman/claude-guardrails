@@ -37,7 +37,19 @@ In the desktop app, click + next to the prompt box, then Plugins. Choose Add mar
 
 ## Setting
 
-**Projects folder** (`projectsFolder`) is a folder that holds your projects, one per subfolder, such as `~/code`. Once it's set, neither that folder nor any whole project in it can be deleted recursively. It's empty by default. Set it in `/config`.
+**Projects folder** (`projectsFolder`) is a folder that holds your projects, one per subfolder, such as `~/code`. Once it's set, neither that folder nor any whole project in it can be deleted recursively. It's empty by default. Set it at the prompt:
+
+```
+/plugin configure guardrails@guardrails
+```
+
+Or from a shell:
+
+```
+echo '{"projectsFolder":"~/code"}' | claude plugin configure guardrails@guardrails --values-stdin
+```
+
+A session that was already open when you installed the mod doesn't know about it, so its `/plugin configure` says the mod isn't installed. Use the shell line, or a new session.
 
 ## Limits
 
@@ -53,3 +65,7 @@ In the desktop app, click + next to the prompt box, then Plugins. Choose Add mar
 claude plugin validate .
 claude plugin test .
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
