@@ -1,0 +1,6 @@
+{
+  "name": "guardrails",
+  "description": "A Claude Code mod that guards shell commands: secret files, read-only data/raw, protected folders.",
+  "owner": { "name": "daldaman" },
+  "plugins": [{ "name": "guardrails", "source": "./" }]
+}

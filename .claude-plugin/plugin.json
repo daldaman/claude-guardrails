@@ -1,0 +1,14 @@
+{
+  "name": "guardrails",
+  "version": "0.1.0",
+  "description": "Blocks shell commands that read secret files, change data/raw, or recursively delete protected folders (Bash, PowerShell and their -c wrappers).",
+  "author": { "name": "daldaman", "url": "https://github.com/daldaman" },
+  "userConfig": {
+    "projectsFolder": {
+      "type": "string",
+      "title": "Projects folder",
+      "default": "",
+      "description": "A folder that holds your projects, one per subfolder (e.g. ~/code). Neither it nor any whole project in it can be deleted recursively. Empty turns this off."
+    }
+  }
+}
