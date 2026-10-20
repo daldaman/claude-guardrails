@@ -55,7 +55,7 @@ export function segments(command: string, shell: Shell): Segment[] {
     seg = { words: [], redirects: [] }
   }
   for (let i = 0; i < command.length; i++) {
-    const c = command[i]
+    const c = command[i]!
     if (quote) {
       if (c === quote) quote = ''
       else cur += c
@@ -154,9 +154,9 @@ function isRecursive(verb: string, lower: string[], shell: Shell): boolean {
 function checkSegment(seg: Segment, shell: Shell, ctx: Ctx, depth: number): string | undefined {
   const { home } = ctx
   const words = seg.words.slice()
-  while (words.length && (PREFIXES.test(words[0].toLowerCase()) || /^[a-z_][a-z0-9_]*=/i.test(words[0]))) {
+  while (words.length && (PREFIXES.test(words[0]!.toLowerCase()) || /^[a-z_][a-z0-9_]*=/i.test(words[0]!))) {
     const dropped = words.shift()!.toLowerCase()
-    if (dropped === 'xargs') while (words.length && words[0].startsWith('-')) words.shift()
+    if (dropped === 'xargs') while (words.length && words[0]!.startsWith('-')) words.shift()
   }
   const verb = verbOf(words[0] ?? '')
   const args = words.slice(1)
